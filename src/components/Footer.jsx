@@ -23,27 +23,25 @@ export default function Footer() {
         </div>
 
         <div className="footer-col links-col">
-          <h4>Navigation</h4>
+          <h4>Quick Links</h4>
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About Us</Link></li>
-            <li><Link to="/fabrics">50+ Fabric Varieties</Link></li>
-            <li><Link to="/products">Product Catalogue</Link></li>
-            <li><Link to="/quote-estimator">Price Estimator</Link></li>
-            <li><Link to="/sample-request">Free Fabric Swatches</Link></li>
-            <li><Link to="/contact">Contact & Map</Link></li>
+            <li><Link to="/products">Product Range</Link></li>
+            <li><Link to="/services">Services & 50+ Fabrics</Link></li>
+            <li><Link to="/contact">Contact & Location</Link></li>
           </ul>
         </div>
 
         <div className="footer-col products-col">
-          <h4>Product Range</h4>
+          <h4>Product Selection</h4>
           <ul>
             <li><Link to="/products">Sports T-Shirts & Sandos</Link></li>
             <li><Link to="/products">Custom & Photo Printed Tees</Link></li>
-            <li><Link to="/products">Team Cricket Uniforms</Link></li>
+            <li><Link to="/products">Team Uniform Kits</Link></li>
             <li><Link to="/products">Gym Wear & Lowers</Link></li>
             <li><Link to="/products">Winter Jackets</Link></li>
-            <li><Link to="/products">Curtains & Cushion Covers</Link></li>
+            <li><Link to="/products">Home Furnishing Textiles</Link></li>
           </ul>
         </div>
 

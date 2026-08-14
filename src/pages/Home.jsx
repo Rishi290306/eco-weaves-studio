@@ -58,8 +58,8 @@ export default function Home() {
               <Link to="/products" className="btn btn-gold btn-lg">
                 <i className="fa-solid fa-bag-shopping"></i> Explore Products
               </Link>
-              <Link to="/quote-estimator" className="btn btn-glass btn-lg">
-                <i className="fa-solid fa-sliders"></i> Quote Builder
+              <Link to="/services" className="btn btn-glass btn-lg">
+                <i className="fa-solid fa-gears"></i> Our Services
               </Link>
             </div>
 
@@ -95,8 +95,8 @@ export default function Home() {
                 </p>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(212, 175, 55, 0.15)', paddingTop: '1rem' }}>
                   <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--gold-bright)' }}>Factory Direct Supply</span>
-                  <Link to="/sample-request" style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-light)' }}>
-                    Get Swatch Box <i className="fa-solid fa-arrow-right" style={{ marginLeft: '0.3rem' }}></i>
+                  <Link to="/services" style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-light)' }}>
+                    Learn More <i className="fa-solid fa-arrow-right" style={{ marginLeft: '0.3rem' }}></i>
                   </Link>
                 </div>
               </div>
@@ -175,7 +175,7 @@ export default function Home() {
 
           <div style={{ textAlign: 'center', marginTop: '4rem' }}>
             <Link to="/products" className="btn btn-gold btn-lg">
-              <i className="fa-solid fa-border-all"></i> View All 14 Product Lines
+              <i className="fa-solid fa-border-all"></i> View All Product Lines
             </Link>
           </div>
         </div>
@@ -184,16 +184,16 @@ export default function Home() {
       {/* Quick Banner CTA */}
       <section style={{ background: 'linear-gradient(180deg, rgba(5, 24, 18, 0.95) 0%, rgba(3, 13, 10, 0.98) 100%)', padding: '5rem 0', borderTop: '1px solid var(--border-gold)', borderBottom: '1px solid var(--border-gold)' }}>
         <div className="container text-center">
-          <h2 style={{ fontSize: '2.6rem', marginBottom: '1.25rem' }}>Looking for Custom Bulk Uniforms or Fabric Swatches?</h2>
+          <h2 style={{ fontSize: '2.6rem', marginBottom: '1.25rem' }}>Looking for Custom Bulk Uniforms or Fabric Supply?</h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem', maxWidth: '750px', margin: '0 auto 2.5rem auto', lineHeight: 1.7 }}>
-            Our in-house design team converts your ideas into high-definition sublimated apparel and custom textiles.
+            Our in-house manufacturing unit converts your requirements into high-definition sublimated apparel and custom eco textiles.
           </p>
           <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/quote-estimator" className="btn btn-gold btn-lg">
-              <i className="fa-solid fa-sliders"></i> Build Custom Quote
+            <Link to="/services" className="btn btn-gold btn-lg">
+              <i className="fa-solid fa-gears"></i> Explore Our Services
             </Link>
-            <Link to="/sample-request" className="btn btn-glass btn-lg">
-              <i className="fa-solid fa-box-open"></i> Request Free Swatch Box
+            <Link to="/contact" className="btn btn-glass btn-lg">
+              <i className="fa-solid fa-envelope"></i> Send Direct Inquiry
             </Link>
           </div>
         </div>

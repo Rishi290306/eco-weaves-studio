@@ -30,7 +30,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Multi-Page Navigation Menu */}
+        {/* 5 Core Navigation Pages */}
         <nav className={`nav-menu ${mobileOpen ? 'active' : ''}`}>
           <ul className="nav-links">
             <li>
@@ -40,12 +40,7 @@ export default function Navbar() {
             </li>
             <li>
               <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMobile}>
-                <i className="fa-solid fa-leaf"></i> About
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/fabrics" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMobile}>
-                <i className="fa-solid fa-scroll"></i> Fabrics
+                <i className="fa-solid fa-leaf"></i> About Us
               </NavLink>
             </li>
             <li>
@@ -54,23 +49,8 @@ export default function Navbar() {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/quote-estimator" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMobile}>
-                <i className="fa-solid fa-calculator"></i> Price Estimator
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/sample-request" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMobile}>
-                <i className="fa-solid fa-box-open"></i> Sample Swatches
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/why-us" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMobile}>
-                <i className="fa-solid fa-award"></i> Why Us
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/gallery" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMobile}>
-                <i className="fa-solid fa-images"></i> Gallery
+              <NavLink to="/services" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMobile}>
+                <i className="fa-solid fa-gears"></i> Services
               </NavLink>
             </li>
             <li>
@@ -84,7 +64,7 @@ export default function Navbar() {
         {/* CTA & Mobile Toggle */}
         <div className="header-actions">
           <Link to="/contact" className="btn btn-gold btn-sm btn-glow">
-            <i className="fa-solid fa-paper-plane"></i> Get Quote
+            <i className="fa-solid fa-paper-plane"></i> Get Inquiry
           </Link>
           <button className="mobile-toggle" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle navigation">
             <span className="bar"></span>

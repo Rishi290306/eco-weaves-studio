@@ -10,13 +10,8 @@ import PageTransition from './components/PageTransition';
 
 import Home from './pages/Home';
 import About from './pages/About';
-import Fabrics from './pages/Fabrics';
 import Products from './pages/Products';
-import ProductDetail from './pages/ProductDetail';
-import QuoteEstimator from './pages/QuoteEstimator';
-import SampleRequest from './pages/SampleRequest';
-import WhyUs from './pages/WhyUs';
-import Gallery from './pages/Gallery';
+import Services from './pages/Services';
 import Contact from './pages/Contact';
 
 import './App.css';
@@ -36,18 +31,13 @@ export default function App() {
       {/* Navbar */}
       <Navbar />
 
-      {/* Multi-Page Routes */}
+      {/* 5 Core Client Pages */}
       <main style={{ minHeight: '80vh' }}>
         <Routes>
           <Route path="/" element={<PageTransition><Home /></PageTransition>} />
           <Route path="/about" element={<PageTransition><About /></PageTransition>} />
-          <Route path="/fabrics" element={<PageTransition><Fabrics /></PageTransition>} />
           <Route path="/products" element={<PageTransition><Products /></PageTransition>} />
-          <Route path="/product/:id" element={<PageTransition><ProductDetail /></PageTransition>} />
-          <Route path="/quote-estimator" element={<PageTransition><QuoteEstimator /></PageTransition>} />
-          <Route path="/sample-request" element={<PageTransition><SampleRequest /></PageTransition>} />
-          <Route path="/why-us" element={<PageTransition><WhyUs /></PageTransition>} />
-          <Route path="/gallery" element={<PageTransition><Gallery /></PageTransition>} />
+          <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
           <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
         </Routes>
       </main>
