@@ -9,37 +9,64 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [dbStatus, setDbStatus] = useState(null);
 
+  const LOCAL_IP = '192.168.29.106';
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
 
-    // 1. Submit to Java MySQL Backend API
+    const payload = JSON.stringify({
+      name: fullName,
+      email: email,
+      phone: phone,
+      company: category,
+      subject: `Inquiry: ${category}`,
+      message: message
+    });
+
+    let savedInDb = false;
+
+    // 1. Try Localhost API
     try {
       setDbStatus('saving');
-      const response = await fetch('http://localhost:8080/api/contact', {
+      const res = await fetch('http://localhost:8080/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: fullName,
-          email: email,
-          phone: phone,
-          company: category,
-          subject: `Inquiry: ${category}`,
-          message: message
-        })
+        body: payload,
+        signal: AbortSignal.timeout(2000)
       });
-
-      if (response.ok) {
+      if (res.ok) {
         setDbStatus('success');
-      } else {
-        setDbStatus('saved_local');
+        savedInDb = true;
       }
-    } catch (err) {
-      console.log('Java API offline, continuing with email redirect');
-      setDbStatus('saved_local');
+    } catch (e1) {
+      // 2. Try LAN IP for Wi-Fi mobile devices
+      try {
+        const res2 = await fetch(`http://${LOCAL_IP}:8080/api/contact`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: payload,
+          signal: AbortSignal.timeout(2000)
+        });
+        if (res2.ok) {
+          setDbStatus('success');
+          savedInDb = true;
+        }
+      } catch (e2) {
+        setDbStatus('saved_mobile');
+      }
     }
 
-    // 2. Mailto Client Fallback
+    // 3. Fallback: Trigger WhatsApp Direct & Mailto for Mobile Users
+    const encodedMsg = encodeURIComponent(
+      `*New Inquiry from Eco Weaves Website*\n` +
+      `👤 *Name:* ${fullName}\n` +
+      `✉️ *Email:* ${email}\n` +
+      `📞 *Phone:* ${phone}\n` +
+      `🏷️ *Category:* ${category}\n` +
+      `📝 *Requirement:* ${message}`
+    );
+
     const mailSubject = encodeURIComponent(`New Inquiry: ${category} from ${fullName}`);
     const mailBody = encodeURIComponent(
       `Name: ${fullName}\n` +
@@ -50,7 +77,13 @@ export default function Contact() {
     );
 
     setTimeout(() => {
-      window.location.href = `mailto:ECOM.RAVI@YAHOO.COM?subject=${mailSubject}&body=${mailBody}`;
+      // If submitted from phone outside home network, open WhatsApp or Email client
+      const waUrl = `https://wa.me/?text=${encodedMsg}`;
+      const mailUrl = `mailto:ECOM.RAVI@YAHOO.COM?subject=${mailSubject}&body=${mailBody}`;
+      
+      if (!savedInDb) {
+        window.location.href = mailUrl;
+      }
     }, 1500);
   };
 
@@ -118,12 +151,15 @@ export default function Contact() {
                 <div className="text-center" style={{ padding: '2rem 0' }}>
                   <i className="fa-solid fa-circle-check gold-icon" style={{ fontSize: '3rem', marginBottom: '1rem' }}></i>
                   <h2>Inquiry Submitted!</h2>
-                  {dbStatus === 'success' && (
+                  {dbStatus === 'success' ? (
                     <p style={{ color: 'var(--green-accent)', fontWeight: 600, margin: '1rem 0' }}>
-                      ✅ Saved to MySQL Database (`contact_messages` table)!
+                      ✅ Saved directly to MySQL Database (`contact_messages`)!
+                    </p>
+                  ) : (
+                    <p style={{ color: 'var(--gold-bright)', fontWeight: 600, margin: '1rem 0' }}>
+                      📱 Opening Email / WhatsApp to deliver inquiry to ECOM.RAVI@YAHOO.COM...
                     </p>
                   )}
-                  <p style={{ color: 'var(--text-muted)' }}>Opening your email client to send message to ECOM.RAVI@YAHOO.COM...</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
