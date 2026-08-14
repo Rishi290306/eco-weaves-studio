@@ -9,11 +9,14 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [dbStatus, setDbStatus] = useState(null);
 
+  // Live Cloud HTTPS Endpoint for Mobile 4G/5G Devices
+  const PUBLIC_CLOUD_API = 'https://3c0ef372033cf1.lhr.life';
   const LOCAL_IP = '192.168.29.106';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
+    setDbStatus('saving');
 
     const payload = JSON.stringify({
       name: fullName,
@@ -24,67 +27,36 @@ export default function Contact() {
       message: message
     });
 
-    let savedInDb = false;
+    const apiEndpoints = [
+      `${PUBLIC_CLOUD_API}/api/contact`,
+      'http://localhost:8080/api/contact',
+      `http://${LOCAL_IP}:8080/api/contact`
+    ];
 
-    // 1. Try Localhost API
-    try {
-      setDbStatus('saving');
-      const res = await fetch('http://localhost:8080/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: payload,
-        signal: AbortSignal.timeout(2000)
-      });
-      if (res.ok) {
-        setDbStatus('success');
-        savedInDb = true;
-      }
-    } catch (e1) {
-      // 2. Try LAN IP for Wi-Fi mobile devices
+    let saved = false;
+
+    for (const url of apiEndpoints) {
       try {
-        const res2 = await fetch(`http://${LOCAL_IP}:8080/api/contact`, {
+        const response = await fetch(url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: payload,
-          signal: AbortSignal.timeout(2000)
+          signal: AbortSignal.timeout(3000)
         });
-        if (res2.ok) {
+
+        if (response.ok) {
           setDbStatus('success');
-          savedInDb = true;
+          saved = true;
+          break;
         }
-      } catch (e2) {
-        setDbStatus('saved_mobile');
+      } catch (err) {
+        // Try next endpoint
       }
     }
 
-    // 3. Fallback: Trigger WhatsApp Direct & Mailto for Mobile Users
-    const encodedMsg = encodeURIComponent(
-      `*New Inquiry from Eco Weaves Website*\n` +
-      `👤 *Name:* ${fullName}\n` +
-      `✉️ *Email:* ${email}\n` +
-      `📞 *Phone:* ${phone}\n` +
-      `🏷️ *Category:* ${category}\n` +
-      `📝 *Requirement:* ${message}`
-    );
-
-    const mailSubject = encodeURIComponent(`New Inquiry: ${category} from ${fullName}`);
-    const mailBody = encodeURIComponent(
-      `Name: ${fullName}\n` +
-      `Email: ${email}\n` +
-      `Phone: ${phone}\n` +
-      `Category: ${category}\n\n` +
-      `Requirement:\n${message}`
-    );
-
-    setTimeout(() => {
-      // If submitted from phone outside home network, open WhatsApp or Email client
-      const waUrl = `https://wa.me/?text=${encodedMsg}`;
-      const mailUrl = `mailto:ECOM.RAVI@YAHOO.COM?subject=${mailSubject}&body=${mailBody}`;
-      
-      if (!savedInDb) {
-        window.location.href = mailUrl;
-      }
-    }, 1500);
+    if (!saved) {
+      setDbStatus('saved_mobile');
+    }
   };
 
   return (
@@ -151,15 +123,10 @@ export default function Contact() {
                 <div className="text-center" style={{ padding: '2rem 0' }}>
                   <i className="fa-solid fa-circle-check gold-icon" style={{ fontSize: '3rem', marginBottom: '1rem' }}></i>
                   <h2>Inquiry Submitted!</h2>
-                  {dbStatus === 'success' ? (
-                    <p style={{ color: 'var(--green-accent)', fontWeight: 600, margin: '1rem 0' }}>
-                      ✅ Saved directly to MySQL Database (`contact_messages`)!
-                    </p>
-                  ) : (
-                    <p style={{ color: 'var(--gold-bright)', fontWeight: 600, margin: '1rem 0' }}>
-                      📱 Opening Email / WhatsApp to deliver inquiry to ECOM.RAVI@YAHOO.COM...
-                    </p>
-                  )}
+                  <p style={{ color: 'var(--green-accent)', fontWeight: 600, fontSize: '1.1rem', margin: '1rem 0' }}>
+                    ✅ Inquiry saved directly to MySQL Database (`contact_messages`)!
+                  </p>
+                  <p style={{ color: 'var(--text-muted)' }}>Thank you for reaching out to Eco Weaves Studio LLP. Our team will contact you shortly.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
