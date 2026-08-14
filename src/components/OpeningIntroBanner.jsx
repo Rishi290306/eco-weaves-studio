@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import logoImg from '../assets/logo.png';
 
 export default function OpeningIntroBanner() {
   const [dismissed, setDismissed] = useState(false);
@@ -23,7 +24,7 @@ export default function OpeningIntroBanner() {
           <span className="marquee-item"><i className="fa-solid fa-leaf gold-icon"></i> ESTABLISHED 7TH MARCH 2025</span>
           <span className="marquee-item"><i className="fa-solid fa-layer-group gold-icon"></i> 50+ FABRIC VARIETIES</span>
           <span className="marquee-item"><i className="fa-solid fa-shield-halved gold-icon"></i> ZERO DEFECT FINISHING</span>
-          <span class="marquee-item"><i className="fa-solid fa-droplet gold-icon"></i> 100% SKIN-SAFE ECO DYES</span>
+          <span className="marquee-item"><i className="fa-solid fa-droplet gold-icon"></i> 100% SKIN-SAFE ECO DYES</span>
           <span className="marquee-item"><i className="fa-solid fa-crown gold-icon"></i> DESIGN. SUSTAIN. INSPIRE.</span>
           {/* Duplicate for infinite loop */}
           <span className="marquee-item"><i className="fa-solid fa-leaf gold-icon"></i> ESTABLISHED 7TH MARCH 2025</span>
@@ -35,7 +36,7 @@ export default function OpeningIntroBanner() {
       {/* Center Stage Logo Reveal */}
       <div className="intro-center-stage">
         <div className="intro-logo-glow">
-          <img src="/logo.png" alt="Eco Weaves Studio LLP Logo" />
+          <img src={logoImg} alt="Eco Weaves Studio LLP Logo" />
         </div>
         <h1 className="intro-brand-title">
           <span className="gold-gradient-text">ECO WEAVES STUDIO LLP</span>

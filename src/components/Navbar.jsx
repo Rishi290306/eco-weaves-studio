@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import logoImg from '../assets/logo.png';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -21,7 +22,7 @@ export default function Navbar() {
         {/* Brand Logo */}
         <Link to="/" className="brand-logo" onClick={closeMobile}>
           <div className="logo-img-wrap">
-            <img src="/logo.png" alt="Eco Weaves Studio LLP Logo" className="logo-img" />
+            <img src={logoImg} alt="Eco Weaves Studio LLP Logo" className="logo-img" style={{ width: '42px', height: '42px', objectFit: 'cover', borderRadius: '50%' }} />
           </div>
           <div className="brand-text">
             <span className="brand-name">ECO WEAVES</span>

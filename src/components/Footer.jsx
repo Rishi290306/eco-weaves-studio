@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logoImg from '../assets/logo.png';
 
 export default function Footer() {
   return (
@@ -7,7 +8,7 @@ export default function Footer() {
       <div className="container footer-content">
         <div className="footer-col brand-col">
           <div className="brand-logo" style={{ marginBottom: '1rem' }}>
-            <img src="/logo.png" alt="Logo" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />
+            <img src={logoImg} alt="Eco Weaves Studio LLP Logo" style={{ width: '42px', height: '42px', objectFit: 'cover', borderRadius: '50%' }} />
             <div className="brand-text">
               <span className="brand-name">ECO WEAVES STUDIO LLP</span>
               <span className="brand-sub">DESIGN. SUSTAIN. INSPIRE.</span>
