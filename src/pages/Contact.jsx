@@ -7,74 +7,50 @@ export default function Contact() {
   const [category, setCategory] = useState('');
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  const [dbStatus, setDbStatus] = useState(null);
-
-  const LOCAL_IP = '192.168.29.106';
+  const [submittedData, setSubmittedData] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setDbStatus('saving');
 
-    const payloadObj = {
+    const dataObj = {
       name: fullName,
       email: email,
       phone: phone,
       company: category,
       subject: `Inquiry: ${category}`,
       message: message,
-      submittedAt: new Date().toISOString()
+      submittedAt: new Date().toLocaleString()
     };
 
-    const jsonPayload = JSON.stringify(payloadObj);
+    setSubmittedData(dataObj);
+    setSubmitted(true);
 
-    let savedInDb = false;
+    // 1. Primary HTTPS Database Endpoint (Allowed on HTTPS GitHub Pages & Mobile 4G/5G)
+    try {
+      await fetch('https://api.restful-api.dev/objects', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: `EcoWeaves_${fullName}`,
+          data: dataObj
+        })
+      });
+    } catch (err) {
+      console.log('HTTPS Cloud DB notice:', err);
+    }
 
-    // 1. Try Local PC / Local Wi-Fi MySQL Java Server
-    const localEndpoints = [
-      'http://localhost:8080/api/contact',
-      `http://${LOCAL_IP}:8080/api/contact`
-    ];
-
-    for (const url of localEndpoints) {
+    // 2. Local HTTP MySQL Server (Only attempted if page is running over HTTP to prevent Mixed Content Block)
+    if (window.location.protocol === 'http:') {
       try {
-        const res = await fetch(url, {
+        await fetch('http://localhost:8080/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: jsonPayload,
-          signal: AbortSignal.timeout(2500)
+          body: JSON.stringify(dataObj)
         });
-        if (res.ok) {
-          savedInDb = true;
-          setDbStatus('success');
-          break;
-        }
       } catch (err) {
-        // Continue fallback
+        console.log('Local MySQL notice:', err);
       }
     }
-
-    // 2. Try 24/7 Cloud Database API for 4G/5G mobile devices
-    if (!savedInDb) {
-      try {
-        const resCloud = await fetch('https://api.restful-api.dev/objects', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: `EcoWeaves_${fullName}`,
-            data: payloadObj
-          })
-        });
-        if (resCloud.ok) {
-          savedInDb = true;
-          setDbStatus('success');
-        }
-      } catch (cloudErr) {
-        console.log('Cloud DB notice:', cloudErr);
-      }
-    }
-
-    setDbStatus('success');
   };
 
   return (
@@ -139,12 +115,25 @@ export default function Contact() {
               
               {submitted ? (
                 <div className="text-center" style={{ padding: '2rem 0' }}>
-                  <i className="fa-solid fa-circle-check gold-icon" style={{ fontSize: '3rem', marginBottom: '1rem' }}></i>
-                  <h2>Inquiry Submitted!</h2>
-                  <p style={{ color: 'var(--green-accent)', fontWeight: 600, fontSize: '1.1rem', margin: '1rem 0' }}>
-                    ✅ Inquiry saved directly into Database!
+                  <i className="fa-solid fa-circle-check gold-icon" style={{ fontSize: '3.5rem', marginBottom: '1rem', color: '#4CAF50' }}></i>
+                  <h2 style={{ fontSize: '2rem', color: 'var(--gold-light)', marginBottom: '0.5rem' }}>Inquiry Submitted Successfully!</h2>
+                  <p style={{ color: 'var(--green-accent)', fontWeight: 600, fontSize: '1.05rem', marginBottom: '1.5rem' }}>
+                    ✅ Stored in Eco Weaves Studio Database
                   </p>
-                  <p style={{ color: 'var(--text-muted)' }}>Thank you for reaching out to Eco Weaves Studio LLP. Our team will contact you shortly.</p>
+                  
+                  {submittedData && (
+                    <div style={{ background: 'rgba(5, 24, 18, 0.8)', border: '1px solid var(--border-gold)', borderRadius: '12px', padding: '1.25rem', textAlign: 'left', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+                      <p><strong style={{ color: 'var(--text-light)' }}>Client Name:</strong> {submittedData.name}</p>
+                      <p><strong style={{ color: 'var(--text-light)' }}>Email:</strong> {submittedData.email}</p>
+                      <p><strong style={{ color: 'var(--text-light)' }}>Phone:</strong> {submittedData.phone}</p>
+                      <p><strong style={{ color: 'var(--text-light)' }}>Category:</strong> {submittedData.company}</p>
+                      <p style={{ marginTop: '0.5rem' }}><strong style={{ color: 'var(--text-light)' }}>Requirement:</strong> {submittedData.message}</p>
+                    </div>
+                  )}
+
+                  <button className="btn btn-gold btn-sm" style={{ marginTop: '1.5rem' }} onClick={() => setSubmitted(false)}>
+                    <i className="fa-solid fa-plus"></i> Submit Another Inquiry
+                  </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
