@@ -9,7 +9,7 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [submittedData, setSubmittedData] = useState(null);
 
-  const LIVE_HTTPS_MYSQL_API = 'https://true-nails-marry.loca.lt/api/contact';
+  const DIRECT_HTTPS_MYSQL_API = 'https://b182754d5c29f382-49-36-115-232.serveousercontent.com/api/contact';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,21 +29,20 @@ export default function Contact() {
 
     const jsonPayload = JSON.stringify(dataObj);
 
-    // 1. Submit directly to PC MySQL Database via Public HTTPS Tunnel (Works from 4G/5G mobile phones worldwide!)
+    // 1. Submit directly to PC MySQL Database via Public HTTPS Endpoint (Works from any phone/browser worldwide!)
     try {
-      await fetch(LIVE_HTTPS_MYSQL_API, {
+      await fetch(DIRECT_HTTPS_MYSQL_API, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'bypass-tunnel-reminder': 'true'
+          'Content-Type': 'application/json'
         },
         body: jsonPayload
       });
     } catch (err) {
-      console.log('HTTPS Tunnel MySQL notice:', err);
+      console.log('HTTPS MySQL notice:', err);
     }
 
-    // 2. Local PC fallback if on local network / HTTP
+    // 2. Local PC fallback if on local network
     if (window.location.protocol === 'http:') {
       try {
         await fetch('http://localhost:8080/api/contact', {
@@ -54,20 +53,6 @@ export default function Contact() {
       } catch (err) {
         console.log('Local HTTP MySQL notice:', err);
       }
-    }
-
-    // 3. Cloud Database Backup
-    try {
-      await fetch('https://api.restful-api.dev/objects', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: `EcoWeaves_${fullName}`,
-          data: dataObj
-        })
-      });
-    } catch (cloudErr) {
-      console.log('Cloud Backup notice:', cloudErr);
     }
   };
 
