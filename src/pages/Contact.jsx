@@ -10,6 +10,7 @@ export default function Contact() {
   const [submittedData, setSubmittedData] = useState(null);
 
   const LOCAL_IP = '192.168.29.106';
+  const LIVE_HTTPS_TUNNEL = 'https://clever-snails-jam.loca.lt/api/contact';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,24 +30,26 @@ export default function Contact() {
 
     const jsonPayload = JSON.stringify(dataObj);
 
-    // 1. Submit directly to Java MySQL Server (Local PC & Local Wi-Fi Network)
+    // Endpoints array prioritizing Live HTTPS Tunnel, Localhost, and LAN IP
     const endpoints = [
+      LIVE_HTTPS_TUNNEL,
       'http://localhost:8080/api/contact',
-      `http://${LOCAL_IP}:8080/api/contact`,
-      'https://api.restful-api.dev/objects'
+      `http://${LOCAL_IP}:8080/api/contact`
     ];
 
     for (const url of endpoints) {
       try {
         await fetch(url, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: url.includes('restful-api') 
-            ? JSON.stringify({ name: `EcoWeaves_${fullName}`, data: dataObj })
-            : jsonPayload
+          headers: {
+            'Content-Type': 'application/json',
+            'bypass-tunnel-reminder': 'true'
+          },
+          body: jsonPayload,
+          signal: AbortSignal.timeout(3000)
         });
       } catch (err) {
-        // Ignore single endpoint error and attempt next
+        // Continue fallback silently
       }
     }
   };
@@ -116,7 +119,7 @@ export default function Contact() {
                   <i className="fa-solid fa-circle-check gold-icon" style={{ fontSize: '3.5rem', marginBottom: '1rem', color: '#4CAF50' }}></i>
                   <h2 style={{ fontSize: '2rem', color: 'var(--gold-light)', marginBottom: '0.5rem' }}>Inquiry Submitted Successfully!</h2>
                   <p style={{ color: 'var(--green-accent)', fontWeight: 600, fontSize: '1.05rem', marginBottom: '1.5rem' }}>
-                    ✅ Saved directly into Eco Weaves MySQL Database!
+                    ✅ Stored directly into Eco Weaves MySQL Database!
                   </p>
                   
                   {submittedData && (
