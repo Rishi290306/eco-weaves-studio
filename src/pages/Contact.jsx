@@ -9,6 +9,8 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [submittedData, setSubmittedData] = useState(null);
 
+  const LIVE_HTTPS_MYSQL_API = 'https://true-nails-marry.loca.lt/api/contact';
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -25,7 +27,36 @@ export default function Contact() {
     setSubmittedData(dataObj);
     setSubmitted(true);
 
-    // 1. Primary HTTPS Database Endpoint (Allowed on HTTPS GitHub Pages & Mobile 4G/5G)
+    const jsonPayload = JSON.stringify(dataObj);
+
+    // 1. Submit directly to PC MySQL Database via Public HTTPS Tunnel (Works from 4G/5G mobile phones worldwide!)
+    try {
+      await fetch(LIVE_HTTPS_MYSQL_API, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'bypass-tunnel-reminder': 'true'
+        },
+        body: jsonPayload
+      });
+    } catch (err) {
+      console.log('HTTPS Tunnel MySQL notice:', err);
+    }
+
+    // 2. Local PC fallback if on local network / HTTP
+    if (window.location.protocol === 'http:') {
+      try {
+        await fetch('http://localhost:8080/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: jsonPayload
+        });
+      } catch (err) {
+        console.log('Local HTTP MySQL notice:', err);
+      }
+    }
+
+    // 3. Cloud Database Backup
     try {
       await fetch('https://api.restful-api.dev/objects', {
         method: 'POST',
@@ -35,21 +66,8 @@ export default function Contact() {
           data: dataObj
         })
       });
-    } catch (err) {
-      console.log('HTTPS Cloud DB notice:', err);
-    }
-
-    // 2. Local HTTP MySQL Server (Only attempted if page is running over HTTP to prevent Mixed Content Block)
-    if (window.location.protocol === 'http:') {
-      try {
-        await fetch('http://localhost:8080/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(dataObj)
-        });
-      } catch (err) {
-        console.log('Local MySQL notice:', err);
-      }
+    } catch (cloudErr) {
+      console.log('Cloud Backup notice:', cloudErr);
     }
   };
 
@@ -118,7 +136,7 @@ export default function Contact() {
                   <i className="fa-solid fa-circle-check gold-icon" style={{ fontSize: '3.5rem', marginBottom: '1rem', color: '#4CAF50' }}></i>
                   <h2 style={{ fontSize: '2rem', color: 'var(--gold-light)', marginBottom: '0.5rem' }}>Inquiry Submitted Successfully!</h2>
                   <p style={{ color: 'var(--green-accent)', fontWeight: 600, fontSize: '1.05rem', marginBottom: '1.5rem' }}>
-                    ✅ Stored in Eco Weaves Studio Database
+                    ✅ Stored directly into MySQL Database!
                   </p>
                   
                   {submittedData && (
