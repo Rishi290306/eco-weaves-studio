@@ -9,7 +9,7 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [submittedData, setSubmittedData] = useState(null);
 
-  const DIRECT_HTTPS_MYSQL_API = 'https://b182754d5c29f382-49-36-115-232.serveousercontent.com/api/contact';
+  const LIVE_HTTPS_MYSQL_API = 'https://true-nails-marry.loca.lt/api/contact';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,20 +29,21 @@ export default function Contact() {
 
     const jsonPayload = JSON.stringify(dataObj);
 
-    // 1. Submit directly to PC MySQL Database via Public HTTPS Endpoint (Works from any phone/browser worldwide!)
+    // 1. Submit directly to PC MySQL Database via Public HTTPS Tunnel (Bypassing reminder header)
     try {
-      await fetch(DIRECT_HTTPS_MYSQL_API, {
+      await fetch(LIVE_HTTPS_MYSQL_API, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'bypass-tunnel-reminder': 'true'
         },
         body: jsonPayload
       });
     } catch (err) {
-      console.log('HTTPS MySQL notice:', err);
+      console.log('HTTPS Tunnel MySQL notice:', err);
     }
 
-    // 2. Local PC fallback if on local network
+    // 2. Local PC fallback if on local network / HTTP
     if (window.location.protocol === 'http:') {
       try {
         await fetch('http://localhost:8080/api/contact', {
