@@ -28,22 +28,9 @@ export default function Contact() {
 
     const jsonPayload = JSON.stringify(payloadObj);
 
-    // 1. Submit to 24/7 Cloud Database API (Works on 4G/5G mobile phones worldwide)
-    try {
-      await fetch('https://api.restful-api.dev/objects', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: fullName,
-          data: payloadObj
-        })
-      });
-      setDbStatus('success');
-    } catch (cloudErr) {
-      console.log('Cloud DB notice:', cloudErr);
-    }
+    let savedInDb = false;
 
-    // 2. Submit to Local Java MySQL Server if active
+    // 1. Try Local PC / Local Wi-Fi MySQL Java Server
     const localEndpoints = [
       'http://localhost:8080/api/contact',
       `http://${LOCAL_IP}:8080/api/contact`
@@ -51,14 +38,39 @@ export default function Contact() {
 
     for (const url of localEndpoints) {
       try {
-        await fetch(url, {
+        const res = await fetch(url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: jsonPayload,
-          signal: AbortSignal.timeout(2000)
+          signal: AbortSignal.timeout(2500)
         });
+        if (res.ok) {
+          savedInDb = true;
+          setDbStatus('success');
+          break;
+        }
       } catch (err) {
-        // Ignore local offline notice
+        // Continue fallback
+      }
+    }
+
+    // 2. Try 24/7 Cloud Database API for 4G/5G mobile devices
+    if (!savedInDb) {
+      try {
+        const resCloud = await fetch('https://api.restful-api.dev/objects', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: `EcoWeaves_${fullName}`,
+            data: payloadObj
+          })
+        });
+        if (resCloud.ok) {
+          savedInDb = true;
+          setDbStatus('success');
+        }
+      } catch (cloudErr) {
+        console.log('Cloud DB notice:', cloudErr);
       }
     }
 
