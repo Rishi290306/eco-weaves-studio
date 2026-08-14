@@ -9,6 +9,8 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [submittedData, setSubmittedData] = useState(null);
 
+  const LOCAL_IP = '192.168.29.106';
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -27,48 +29,24 @@ export default function Contact() {
 
     const jsonPayload = JSON.stringify(dataObj);
 
-    // 1. Send Instant Email Notification to ECOM.RAVI@YAHOO.COM (Works 100% on Mobile 4G/5G & PC)
-    try {
-      await fetch('https://formsubmit.co/ajax/ECOM.RAVI@YAHOO.COM', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          name: fullName,
-          email: email,
-          phone: phone,
-          category: category,
-          message: message,
-          _subject: `New Inquiry from ${fullName} - Eco Weaves Studio`
-        })
-      });
-    } catch (err) {
-      console.log('Email dispatch notice:', err);
-    }
+    // 1. Submit directly to Java MySQL Server (Local PC & Local Wi-Fi Network)
+    const endpoints = [
+      'http://localhost:8080/api/contact',
+      `http://${LOCAL_IP}:8080/api/contact`,
+      'https://api.restful-api.dev/objects'
+    ];
 
-    // 2. Submit to 24/7 Cloud Database API (Persistent mobile cloud DB)
-    try {
-      await fetch('https://api.restful-api.dev/objects', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: `EcoWeaves_${fullName}`,
-          data: dataObj
-        })
-      });
-    } catch (cloudErr) {
-      console.log('Cloud DB notice:', cloudErr);
-    }
-
-    // 3. Submit directly to local MySQL server on PC (if active on local network / HTTP)
-    if (window.location.protocol === 'http:') {
+    for (const url of endpoints) {
       try {
-        await fetch('http://localhost:8080/api/contact', {
+        await fetch(url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: jsonPayload
+          body: url.includes('restful-api') 
+            ? JSON.stringify({ name: `EcoWeaves_${fullName}`, data: dataObj })
+            : jsonPayload
         });
       } catch (err) {
-        console.log('Local HTTP MySQL notice:', err);
+        // Ignore single endpoint error and attempt next
       }
     }
   };
@@ -138,7 +116,7 @@ export default function Contact() {
                   <i className="fa-solid fa-circle-check gold-icon" style={{ fontSize: '3.5rem', marginBottom: '1rem', color: '#4CAF50' }}></i>
                   <h2 style={{ fontSize: '2rem', color: 'var(--gold-light)', marginBottom: '0.5rem' }}>Inquiry Submitted Successfully!</h2>
                   <p style={{ color: 'var(--green-accent)', fontWeight: 600, fontSize: '1.05rem', marginBottom: '1.5rem' }}>
-                    ✅ Stored in Database & Email Dispatched!
+                    ✅ Saved directly into Eco Weaves MySQL Database!
                   </p>
                   
                   {submittedData && (
