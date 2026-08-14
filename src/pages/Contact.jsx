@@ -10,7 +10,6 @@ export default function Contact() {
   const [submittedData, setSubmittedData] = useState(null);
 
   const LOCAL_IP = '192.168.29.106';
-  const LIVE_HTTPS_TUNNEL = 'https://clever-snails-jam.loca.lt/api/contact';
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,48 +29,20 @@ export default function Contact() {
 
     const jsonPayload = JSON.stringify(dataObj);
 
-    // Technique A: Navigator sendBeacon (Bypasses HTTPS Mixed Content Blocks in Chrome/Edge on PC)
+    // Single Target URL to prevent duplicate database rows
+    const targetUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+      ? 'http://localhost:8080/api/contact'
+      : `http://${LOCAL_IP}:8080/api/contact`;
+
     try {
-      const blob = new Blob([jsonPayload], { type: 'application/json' });
-      if (navigator.sendBeacon) {
-        navigator.sendBeacon('http://localhost:8080/api/contact', blob);
-        navigator.sendBeacon(`http://${LOCAL_IP}:8080/api/contact`, blob);
-      }
-    } catch (e) {
-      console.log('Beacon notice:', e);
-    }
-
-    // Technique B: Standard Async Fetch to Local Java MySQL Server
-    const localUrls = [
-      'http://localhost:8080/api/contact',
-      `http://${LOCAL_IP}:8080/api/contact`
-    ];
-
-    localUrls.forEach(url => {
-      try {
-        fetch(url, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: jsonPayload
-        });
-      } catch (err) {
-        // Fallback
-      }
-    });
-
-    // Technique C: Live HTTPS Tunnel for Remote / Mobile Networks
-    try {
-      fetch(LIVE_HTTPS_TUNNEL, {
+      fetch(targetUrl, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'bypass-tunnel-reminder': 'true'
-        },
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
         body: jsonPayload
       });
     } catch (err) {
-      console.log('HTTPS Tunnel notice:', err);
+      console.log('Submission notice:', err);
     }
   };
 
