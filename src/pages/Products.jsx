@@ -4,21 +4,19 @@ import { PRODUCTS_LIST } from '../data/productsData';
 import ProductModal from '../components/ProductModal';
 
 export default function Products() {
-  const [filter, setFilter] = useState('all');
+  // Default directly to 'tshirts' (Printed T-Shirts) so it opens strictly showing T-Shirts
+  const [filter, setFilter] = useState('tshirts');
   const [search, setSearch] = useState('');
   const [selectedProduct, setSelectedProduct] = useState(null);
 
+  // Strictly ONLY 2 Categories: Printed T-Shirts and Cushions
   const categories = [
-    { id: 'all', name: 'All Products' },
-    { id: 'sports', name: 'Sports & Athletic' },
-    { id: 'custom', name: 'Custom & Teams' },
-    { id: 'outer-gym', name: 'Gym & Outerwear' },
-    { id: 'home', name: 'Home & Accessories' },
-    { id: 'innerwear', name: 'Innerwear' },
+    { id: 'tshirts', name: 'Printed T-Shirts' },
+    { id: 'cushions', name: 'Cushions' },
   ];
 
   const filteredProducts = PRODUCTS_LIST.filter(item => {
-    const matchesCategory = filter === 'all' || item.category === filter;
+    const matchesCategory = item.category === filter;
     const matchesSearch = item.name.toLowerCase().includes(search.toLowerCase()) ||
                           item.desc.toLowerCase().includes(search.toLowerCase());
     return matchesCategory && matchesSearch;
@@ -28,22 +26,22 @@ export default function Products() {
     <div>
       <section className="page-hero">
         <div className="container">
-          <span className="section-subtitle"><i className="fa-solid fa-boxes-packing"></i> COMPLETE CATALOGUE</span>
-          <h1 className="section-title">Specialized <span className="gold-gradient-text">Product Lineups</span></h1>
-          <p className="section-desc">Sports T-shirts, Custom T-shirts, Self-photo printed T-shirts, Gym wear, Team uniforms, Aprons, Cushion covers, Curtains, Sandos, Winter jackets, & Innerwear.</p>
+          <span className="section-subtitle"><i className="fa-solid fa-boxes-packing"></i> OUR CATALOGUE</span>
+          <h1 className="section-title">Printed <span className="gold-gradient-text">T-Shirts & Cushions</span></h1>
+          <p className="section-desc">Think it. Customise it. Wear it. Explore our high-definition printed T-Shirts and decorative Cushion collection.</p>
           <div className="title-underline"></div>
         </div>
       </section>
 
       <section className="section-padding">
         <div className="container">
-          {/* Search Bar & Category Tabs */}
-          <div style={{ maxWidth: '550px', margin: '0 auto 3rem auto' }}>
+          {/* Search Bar */}
+          <div style={{ maxWidth: '550px', margin: '0 auto 2.5rem auto' }}>
             <div className="form-group" style={{ position: 'relative' }}>
               <input
                 type="text"
                 className="form-input"
-                placeholder="Search products by name or fabric..."
+                placeholder="Search T-Shirts or Cushions..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
                 style={{ paddingLeft: '3rem' }}
@@ -52,13 +50,17 @@ export default function Products() {
             </div>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.85rem', flexWrap: 'wrap', marginBottom: '3.5rem' }}>
+          {/* Strictly 2 Category Tabs: Printed T-Shirts & Cushions */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap', marginBottom: '3.5rem' }}>
             {categories.map(cat => (
               <button
                 key={cat.id}
                 className={`btn ${filter === cat.id ? 'btn-gold' : 'btn-glass'}`}
+                style={{ padding: '0.85rem 2.5rem', fontSize: '1.1rem', fontWeight: 600 }}
                 onClick={() => setFilter(cat.id)}
               >
+                {cat.id === 'tshirts' && <i className="fa-solid fa-shirt" style={{ marginRight: '0.5rem' }}></i>}
+                {cat.id === 'cushions' && <i className="fa-solid fa-couch" style={{ marginRight: '0.5rem' }}></i>}
                 {cat.name}
               </button>
             ))}
@@ -94,9 +96,9 @@ export default function Products() {
 
           {filteredProducts.length === 0 && (
             <div className="text-center" style={{ padding: '4rem 0', color: 'var(--text-muted)' }}>
-              <h3>No products found matching "{search}"</h3>
-              <button className="btn btn-gold" onClick={() => { setSearch(''); setFilter('all'); }} style={{ marginTop: '1.25rem' }}>
-                Reset Filters
+              <h3>No items found matching "{search}" in this category</h3>
+              <button className="btn btn-gold" onClick={() => { setSearch(''); }} style={{ marginTop: '1.25rem' }}>
+                Clear Search
               </button>
             </div>
           )}
