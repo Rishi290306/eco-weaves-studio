@@ -15,7 +15,7 @@ export default function Footer() {
             </div>
           </div>
           <p className="footer-desc">
-            At Eco Weaves Studio, we create customised fashion and promotional products using eco-friendly fabrics. You bring your ideas, and we bring them to life.
+            At Eco Weaves Studio, we create customised fashion T-Shirts and decorative Cushions using eco-friendly fabrics. You bring your ideas, and we bring them to life.
           </p>
           <p className="footer-email">
             <i className="fa-solid fa-location-dot gold-icon"></i> Sec 37-C, Gurugram, Pincode 122006
@@ -34,21 +34,20 @@ export default function Footer() {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About Us & Leadership</Link></li>
             <li><Link to="/products">Product Range</Link></li>
-            <li><Link to="/services">Services & 50+ Fabrics</Link></li>
+            <li><Link to="/services">Services & Customization</Link></li>
             <li><Link to="/contact">Contact Head Office</Link></li>
           </ul>
         </div>
 
         <div className="footer-col products-col">
-          <h4>What We Make</h4>
+          <h4>Our 2 Core Categories</h4>
           <ul>
-            <li><Link to="/products">Custom & Event T-Shirts</Link></li>
-            <li><Link to="/products">Shorts & Track Pants</Link></li>
-            <li><Link to="/products">Sportswear & Gym Sandos</Link></li>
-            <li><Link to="/products">Cricket Jerseys & Marathon Kits</Link></li>
-            <li><Link to="/products">Bike & Car Riding T-Shirts</Link></li>
-            <li><Link to="/products">Staff & Uniform T-Shirts</Link></li>
-            <li><Link to="/products">Advertising Flags & Gym Bags</Link></li>
+            <li><Link to="/products">Custom T-Shirts</Link></li>
+            <li><Link to="/products">Group & Event T-Shirts</Link></li>
+            <li><Link to="/products">Sports & Athletic T-Shirts</Link></li>
+            <li><Link to="/products">Custom Printed Cushion Covers</Link></li>
+            <li><Link to="/products">Velvet Luxury Cushion Covers</Link></li>
+            <li><Link to="/products">Self-Photo & Graphic Cushions</Link></li>
           </ul>
         </div>
 
@@ -57,7 +56,7 @@ export default function Footer() {
             <i className="fa-solid fa-leaf" style={{ fontSize: '2.2rem', color: '#4CAF50', marginBottom: '0.75rem' }}></i>
             <h4 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Sustainable & Custom</h4>
             <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-              Non-toxic eco dyes, skin-safe colors, and zero-defect fabric craftsmanship.
+              Bio-washed cotton, heavy Jacquard weaves, non-toxic eco dyes & zero-defect craftsmanship.
             </p>
           </div>
         </div>

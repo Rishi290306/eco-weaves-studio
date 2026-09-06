@@ -52,7 +52,7 @@ export default function Contact() {
         <div className="container">
           <span className="section-subtitle"><i className="fa-solid fa-headset"></i> GET IN TOUCH</span>
           <h1 className="section-title">Contact <span className="gold-gradient-text">Eco Weaves Studio</span></h1>
-          <p className="section-desc">Head Office: Sec 37-C Gurugram. Contact us for custom fashion, sportswear, uniform kits, or advertising merchandise.</p>
+          <p className="section-desc">Head Office: Sec 37-C Gurugram. Contact us for custom T-Shirts and Cushion Covers inquiries.</p>
           <div className="title-underline"></div>
         </div>
       </section>
@@ -64,7 +64,7 @@ export default function Contact() {
             <div className="glass-card" style={{ padding: '2.5rem' }}>
               <h3 style={{ fontSize: '1.8rem', color: 'var(--gold-light)', marginBottom: '0.5rem', fontFamily: 'var(--font-serif)' }}>Eco Weaves Studio LLP</h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '2rem' }}>
-                Your Fashion. Your Vision. Our Craft. Contact our Head Office team for direct factory inquiries, custom orders, or fabric samples.
+                Your Fashion. Your Vision. Our Craft. Contact our Head Office team for direct factory inquiries for Custom T-Shirts & Decorative Cushions.
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -106,7 +106,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <strong style={{ display: 'block', color: 'var(--text-light)' }}>WhatsApp Instant Chat</strong>
-                    <a href="https://wa.me/918851589090?text=Hi%20Eco%20Weaves%20Studio,%20I%20want%20a%20quote%20for%20customized%20apparel." target="_blank" rel="noopener noreferrer" style={{ color: '#25D366' }}>
+                    <a href="https://wa.me/918851589090?text=Hi%20Eco%20Weaves%20Studio,%20I%20want%20a%20quote%20for%20T-Shirts%20or%20Cushions." target="_blank" rel="noopener noreferrer" style={{ color: '#25D366' }}>
                       Click to chat on WhatsApp (+91 8851589090)
                     </a>
                   </div>
@@ -162,19 +162,8 @@ export default function Contact() {
                     <label>Product Category Requirement *</label>
                     <select className="form-input" value={category} onChange={e => setCategory(e.target.value)} required>
                       <option value="" disabled>Choose category...</option>
-                      <option value="Custom T-Shirts">Custom T-Shirts (Everyday & Group)</option>
-                      <option value="Shorts & Track Pants">Shorts and Track Pants</option>
-                      <option value="Sportswear & Gym Wear">Sportswear and Gym Wear</option>
-                      <option value="Gym Sandos & Sports T-Shirts">Gym Sandos and Sports T-Shirts</option>
-                      <option value="Gym Bags">Gym Bags & Duffel Bags</option>
-                      <option value="Event T-Shirts">Group & Event T-Shirts</option>
-                      <option value="Cricket Jerseys & Sportswear">Cricket Jerseys & Sportswear</option>
-                      <option value="Bike & Car Riding T-Shirts">Bike & Car Riding T-Shirts</option>
-                      <option value="Staff & Uniform T-Shirts">Staff and Uniform T-Shirts</option>
-                      <option value="Advertising T-Shirts & Flags">Advertising T-Shirts, Flags & Bags</option>
-                      <option value="Marathon T-Shirts">Marathon T-Shirts</option>
-                      <option value="Corporate & Promotional Merchandise">Corporate & Promotional Merchandise</option>
-                      <option value="50+ Raw Fabrics Supply">Raw Fabric Supply (50+ Varieties)</option>
+                      <option value="T-Shirts">Custom T-Shirts (Everyday, Group, Sports & Event Tees)</option>
+                      <option value="Cushions & Covers">Cushions & Covers (Decorative, Velvet & Printed Covers)</option>
                     </select>
                   </div>
 
