@@ -24,7 +24,7 @@ export default function Products() {
 
   return (
     <div>
-      <section className="page-hero">
+      <section className="page-hero" style={{ padding: '7rem 0 3rem 0' }}>
         <div className="container">
           <span className="section-subtitle"><i className="fa-solid fa-boxes-packing"></i> OUR CATALOGUE</span>
           <h1 className="section-title">Printed <span className="gold-gradient-text">T-Shirts & Cushions</span></h1>
@@ -33,30 +33,30 @@ export default function Products() {
         </div>
       </section>
 
-      <section className="section-padding">
-        <div className="container">
+      <section className="section-padding" style={{ paddingTop: '2rem' }}>
+        <div className="container" style={{ maxWidth: '1440px' }}>
           {/* Search Bar */}
-          <div style={{ maxWidth: '550px', margin: '0 auto 2.5rem auto' }}>
-            <div className="form-group" style={{ position: 'relative' }}>
+          <div style={{ maxWidth: '500px', margin: '0 auto 2rem auto' }}>
+            <div className="form-group" style={{ position: 'relative', marginBottom: 0 }}>
               <input
                 type="text"
                 className="form-input"
                 placeholder="Search T-Shirts or Cushions..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                style={{ paddingLeft: '3rem' }}
+                style={{ paddingLeft: '3rem', paddingRight: '1rem', height: '45px', fontSize: '0.95rem' }}
               />
               <i className="fa-solid fa-magnifying-glass gold-icon" style={{ position: 'absolute', left: '1.2rem', top: '50%', transform: 'translateY(-50%)' }}></i>
             </div>
           </div>
 
           {/* Strictly 2 Category Tabs: Printed T-Shirts & Cushions */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap', marginBottom: '3.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
             {categories.map(cat => (
               <button
                 key={cat.id}
                 className={`btn ${filter === cat.id ? 'btn-gold' : 'btn-glass'}`}
-                style={{ padding: '0.85rem 2.5rem', fontSize: '1.1rem', fontWeight: 600 }}
+                style={{ padding: '0.75rem 2.25rem', fontSize: '1.05rem', fontWeight: 600, borderRadius: '30px' }}
                 onClick={() => setFilter(cat.id)}
               >
                 {cat.id === 'tshirts' && <i className="fa-solid fa-shirt" style={{ marginRight: '0.5rem' }}></i>}
@@ -66,11 +66,11 @@ export default function Products() {
             ))}
           </div>
 
-          {/* Product Grid */}
-          <div className="grid-3">
+          {/* Product Grid: 6 Images Per Row */}
+          <div className="grid-6-products">
             {filteredProducts.map(item => (
-              <div key={item.id} className="product-card glass-card">
-                <span className="card-badge">{item.badge}</span>
+              <div key={item.id} className="product-card product-card-sm glass-card">
+                <span className="card-badge" style={{ fontSize: '0.68rem', padding: '0.2rem 0.6rem', top: '0.6rem', right: '0.6rem' }}>{item.badge}</span>
                 <div className="product-img-wrap">
                   <img src={item.img} alt={item.name} />
                 </div>
@@ -78,16 +78,10 @@ export default function Products() {
                   <span className="product-cat">{item.categoryName}</span>
                   <h3 className="product-name">{item.name}</h3>
                   <p className="product-desc">{item.desc}</p>
-                  <div className="product-meta">
-                    <span className="price-est"><i className="fa-solid fa-certificate gold-icon" style={{ marginRight: '0.3rem' }}></i> Direct Factory Quote</span>
-                    <div style={{ display: 'flex', gap: '0.5rem' }}>
-                      <button className="btn btn-gold btn-sm" onClick={() => setSelectedProduct(item)}>
-                        <i className="fa-solid fa-eye"></i> Quick View
-                      </button>
-                      <Link to={`/product/${item.id}`} className="btn btn-glass btn-sm">
-                        Quote
-                      </Link>
-                    </div>
+                  <div className="product-meta" style={{ paddingTop: '0.75rem' }}>
+                    <button className="btn btn-gold btn-sm btn-block" style={{ fontSize: '0.8rem', padding: '0.45rem 0.75rem' }} onClick={() => setSelectedProduct(item)}>
+                      <i className="fa-solid fa-eye"></i> Quick View
+                    </button>
                   </div>
                 </div>
               </div>
