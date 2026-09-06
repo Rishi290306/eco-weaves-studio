@@ -15,8 +15,8 @@ import prod14 from '../assets/products/product_14.jpg';
 
 export const FABRIC_CATEGORIES = [
   { id: 'all', name: 'All Categories' },
-  { id: 'tshirts', name: 'T-Shirts' },
-  { id: 'cushions', name: 'Cushions & Covers' }
+  { id: 'tshirts', name: 'Printed T-Shirts' },
+  { id: 'cushions', name: 'Cushions' }
 ];
 
 export const FABRICS_LIST = [
@@ -24,7 +24,7 @@ export const FABRICS_LIST = [
     id: 'f1',
     name: 'Organic Combed Cotton',
     category: 'tshirts',
-    desc: '100% natural, hypoallergenic, bio-washed cotton fabric ideal for custom printed T-shirts, group tees, and daily wear.',
+    desc: '100% natural, bio-washed cotton fabric ideal for custom printed T-shirts, group tees, and everyday fashion.',
     tag: 'T-Shirts Fabric',
     specs: ['100% Bio-Washed Cotton', 'Zero Pill & Zero Shrink', 'Skin-Friendly Non-Allergic', 'Vivid Print Absorption']
   },
@@ -32,176 +32,176 @@ export const FABRICS_LIST = [
     id: 'f2',
     name: 'Micro-Pique Dry-Fit Mesh',
     category: 'tshirts',
-    desc: 'Moisture-wicking, ultra-breathable polyester mesh blend perfect for sports t-shirts, cricket jerseys, and athletic tees.',
+    desc: 'Moisture-wicking, ultra-breathable mesh blend for sports t-shirts, cricket jerseys, and athletic wear.',
     tag: 'Sports T-Shirts',
     specs: ['Moisture-Wicking Tech', '100% Non-Toxic Eco Dyes', 'Anti-Bacterial Finish', 'UV Protection UPF 50+']
   },
   {
     id: 'f3',
-    name: 'Jacquard & Velvet Weaves',
+    name: 'Jacquard & Canvas Weaves',
     category: 'cushions',
-    desc: 'Heavy-duty, luxurious woven Jacquard and rich velvet fabrics designed for custom printed cushion covers and decorative pillows.',
+    desc: 'Heavy-duty woven Jacquard and cotton canvas for custom printed cushion covers and decorative pillows.',
     tag: 'Cushion Fabric',
     specs: ['Heavy Duty GSM', 'Fade-Proof Inks', 'Stain & Dirt Resistant', 'Hidden Zipper Weave']
   }
 ];
 
 export const PRODUCTS_LIST = [
-  // --- CATEGORY 1: T-SHIRTS ---
+  // --- CATEGORY 1: PRINTED T-SHIRTS (12 ITEMS) ---
   {
     id: 1,
-    name: 'Custom Printed T-Shirts',
+    name: 'Custom Graphic Printed T-Shirt',
     category: 'tshirts',
-    categoryName: 'T-Shirts',
+    categoryName: 'Printed T-Shirts',
     badge: 'Best Seller',
     img: prod1,
     fabric: '100% Bio-Washed Combed Cotton',
-    desc: 'Customized T-shirts crafted with bio-washed combed cotton. High-definition screen printing, embroidery, or vinyl graphic transfers for your unique style.',
-    specs: ['100% Combed Cotton', 'Custom Logo & Graphics', 'Vivid Color Fastness', '50+ Fabric Colors']
+    desc: 'High-definition graphic printed T-shirt crafted with bio-washed combed cotton. Premium feel and vibrant print fastness.',
+    specs: ['100% Combed Cotton', 'Custom Logo & Artwork', 'Vivid Color Fastness', '50+ Fabric Colors']
   },
   {
     id: 2,
-    name: 'Group & Event T-Shirts',
+    name: 'Group & Event Printed T-Shirt',
     category: 'tshirts',
-    categoryName: 'T-Shirts',
+    categoryName: 'Printed T-Shirts',
     badge: 'Popular',
     img: prod2,
     fabric: 'Soft Cotton-Poly Blend',
-    desc: 'Matching group t-shirts for college fests, corporate events, family reunions, and brand awareness campaigns.',
+    desc: 'Matching group t-shirts for college fests, corporate events, reunions, and awareness rallies.',
     specs: ['Bulk Group Pricing', 'Consistent Squad Colors', 'Fast Event Delivery', 'Durable Print Quality']
   },
   {
     id: 3,
-    name: 'Sports & Athletic T-Shirts',
+    name: 'Sports Dry-Fit Printed T-Shirt',
     category: 'tshirts',
-    categoryName: 'T-Shirts',
+    categoryName: 'Printed T-Shirts',
     badge: 'Dry-Fit',
     img: prod3,
     fabric: 'Micro-Pique Dry-Fit Mesh',
-    desc: 'Breathable moisture-wicking sports t-shirts engineered for gym workouts, running, and athletic training.',
+    desc: 'Breathable moisture-wicking sports t-shirt engineered for intense gym workouts, running, and athletic training.',
     specs: ['Sweat Wicking Mesh', 'Uninhibited Movement', 'Odor-Free Treatment', 'Custom Sublimation Prints']
   },
   {
     id: 4,
-    name: 'Staff & Uniform Polo T-Shirts',
+    name: 'Staff & Uniform Polo T-Shirt',
     category: 'tshirts',
-    categoryName: 'T-Shirts',
+    categoryName: 'Printed T-Shirts',
     badge: 'Corporate Grade',
     img: prod4,
     fabric: 'Cotton Pique Matty',
-    desc: 'Professional corporate staff polo t-shirts with neat collar stitching, company logo embroidery, and durable fabric.',
+    desc: 'Professional corporate staff polo t-shirt with neat collar stitching and company logo printing/embroidery.',
     specs: ['Precision Logo Embroidery', 'Stain-Resistant Pique', 'Brand Color Matching', 'Multi-Wash Durability']
   },
   {
     id: 5,
-    name: 'Sublimated Cricket & Sports Jerseys',
+    name: 'Sublimated Sports Jersey T-Shirt',
     category: 'tshirts',
-    categoryName: 'T-Shirts',
+    categoryName: 'Printed T-Shirts',
     badge: '360° Sublimated',
     img: prod5,
     fabric: 'Sublimated Cool Mesh',
-    desc: 'Full 360-degree sublimated sports jerseys featuring custom player names, squad numbers, team logos, and sponsor graphics.',
+    desc: 'Full 360-degree sublimated cricket & sports jersey featuring custom player names, squad numbers, and team logos.',
     specs: ['Full Sublimation Printing', 'Permanent Non-Fade Inks', 'Custom Player Numbers', 'Breathable Sports Mesh']
   },
   {
     id: 6,
-    name: 'Marathon & Running T-Shirts',
+    name: 'Marathon & Athletics T-Shirt',
     category: 'tshirts',
-    categoryName: 'T-Shirts',
+    categoryName: 'Printed T-Shirts',
     badge: 'Ultra Light',
     img: prod6,
     fabric: 'Featherlight Tech Mesh',
-    desc: 'Featherlight marathon t-shirts designed for long-distance running with body airflow ventilation.',
+    desc: 'Featherlight marathon t-shirt designed for long-distance runners with body airflow ventilation.',
     specs: ['Featherlight Ventilation', 'Reflective Trim Option', 'Bulk Event Supply', 'Skin-Safe Eco Dyes']
   },
   {
     id: 7,
-    name: 'Bike & Car Riding T-Shirts',
+    name: 'Biker & Riding Club T-Shirt',
     category: 'tshirts',
-    categoryName: 'T-Shirts',
+    categoryName: 'Printed T-Shirts',
     badge: 'Biker Special',
     img: prod7,
     fabric: 'UV-Protected Stretch Poly',
-    desc: 'Customized biker club and car enthusiast riding t-shirts with windproof stretch fabric and UPF 50+ sun protection.',
+    desc: 'Customized biker club and car enthusiast riding t-shirt with windproof stretch fabric and UPF 50+ sun protection.',
     specs: ['UPF 50+ Sun Protection', 'Club Logo Customization', 'Windproof Stretch Knit', 'High Impact Graphics']
   },
   {
     id: 8,
-    name: 'Advertising & Promo T-Shirts',
+    name: 'Advertising & Campaign T-Shirt',
     category: 'tshirts',
-    categoryName: 'T-Shirts',
+    categoryName: 'Printed T-Shirts',
     badge: 'Promo Bulk',
     img: prod8,
     fabric: 'Poly-Cotton Promo Knit',
-    desc: 'Cost-effective high-volume advertising t-shirts for brand marketing campaigns, trade shows, and giveaways.',
+    desc: 'Cost-effective high-volume advertising t-shirt for brand marketing campaigns, trade shows, and product giveaways.',
     specs: ['High Volume Cost Efficiency', 'Bold Brand Logo Printing', 'Fast Production Lead Times', 'Multiple Colorways']
   },
   {
     id: 9,
-    name: 'Sleeveless Gym & Sando T-Shirts',
+    name: 'Sleeveless Gym Sando T-Shirt',
     category: 'tshirts',
-    categoryName: 'T-Shirts',
+    categoryName: 'Printed T-Shirts',
     badge: 'Max Cooling',
     img: prod9,
     fabric: 'Mesh Ventilation Knit',
-    desc: 'Sleeveless gym sandos and t-shirts designed for bodybuilding, uninhibited arm movement, and summer athletic workouts.',
+    desc: 'Sleeveless gym sando t-shirt designed for bodybuilding, uninhibited arm movement, and summer athletic training.',
     specs: ['Deep Armhole Athletic Cut', 'Quick-Dry Stretch Knit', 'Skin-Safe Non-Allergic', 'Anti-Odor Micro Finish']
-  },
-
-  // --- CATEGORY 2: CUSHIONS ---
-  {
-    id: 10,
-    name: 'Custom Printed Cushion Covers',
-    category: 'cushions',
-    categoryName: 'Cushions & Covers',
-    badge: 'Top Home Decor',
-    img: prod10,
-    fabric: 'Jacquard & Heavy Cotton Canvas',
-    desc: 'Custom printed decorative cushion covers tailored with rich Jacquard and heavy cotton canvas weaves. Available with custom photo prints, patterns, and logos.',
-    specs: ['High-GSM Heavy Duty Weave', 'Hidden Zipper Enclosure', '100% Eco Non-Fade Inks', 'Custom Square & Rectangular Sizes']
   },
   {
     id: 11,
-    name: 'Velvet Luxury Cushion Covers',
-    category: 'cushions',
-    categoryName: 'Cushions & Covers',
-    badge: 'Premium Velvet',
+    name: 'Custom Fashion Printed T-Shirt (Design B)',
+    category: 'tshirts',
+    categoryName: 'Printed T-Shirts',
+    badge: 'Fashion Trend',
     img: prod11,
-    fabric: 'Rich Plush Velvet',
-    desc: 'Ultra-soft luxury velvet cushion covers designed for living room couches, bedroom decor, and executive lounge seating.',
-    specs: ['Plush Velvet Texture', 'Concealed Zipper Stitching', 'Fade-Proof Rich Colors', 'Soft Skin Touch']
+    fabric: '100% Bio-Washed Cotton',
+    desc: 'Stylish custom printed fashion t-shirt crafted with premium bio-washed cotton and high-clarity graphics.',
+    specs: ['100% Bio-Washed Cotton', 'Soft Touch Print', 'Pre-Shrunk Fabric', 'Modern Tailored Fit']
+  },
+  {
+    id: 13,
+    name: 'Corporate & Brand Promo T-Shirt',
+    category: 'tshirts',
+    categoryName: 'Printed T-Shirts',
+    badge: 'Corporate Merch',
+    img: prod13,
+    fabric: 'Premium Poly-Cotton Blend',
+    desc: 'Custom branded promotional t-shirt featuring company logos and brand slogans for corporate teams.',
+    specs: ['Precision Brand Logo Print', 'Stain & Dirt Resistant', 'Bulk Corporate Supply', 'Pan-India Delivery']
+  },
+  {
+    id: 14,
+    name: 'Executive Custom Printed T-Shirt',
+    category: 'tshirts',
+    categoryName: 'Printed T-Shirts',
+    badge: 'Executive',
+    img: prod14,
+    fabric: 'Premium Combed Cotton Pique',
+    desc: 'Executive style printed t-shirt engineered with soft combed cotton pique for high durability.',
+    specs: ['Soft Loft Combed Cotton', 'Durable Collar & Cuff Stitching', 'Fade-Resistant Eco Dyes', 'Pan-India Direct Delivery']
+  },
+
+  // --- CATEGORY 2: CUSHIONS (IMAGES 10 & 12) ---
+  {
+    id: 10,
+    name: 'Custom Printed Cushion Cover (Image 10)',
+    category: 'cushions',
+    categoryName: 'Cushions',
+    badge: 'Top Home Decor',
+    img: prod10,
+    fabric: 'Jacquard & Heavy Cotton Canvas',
+    desc: 'Custom printed decorative cushion cover tailored with rich Jacquard and heavy cotton canvas weaves. Available with custom photo prints and patterns.',
+    specs: ['High-GSM Heavy Duty Weave', 'Hidden Zipper Enclosure', '100% Eco Non-Fade Inks', 'Custom Square & Rectangular Sizes']
   },
   {
     id: 12,
-    name: 'Self-Photo & Graphic Cushions',
+    name: 'Self-Photo & Graphic Cushion (Image 12)',
     category: 'cushions',
-    categoryName: 'Cushions & Covers',
+    categoryName: 'Cushions',
     badge: 'HD Photo Print',
     img: prod12,
     fabric: 'Poly-Cotton Soft Canvas',
     desc: 'Turn your favorite memories, family portraits, or artistic graphics into high-definition printed cushions with crisp detail.',
     specs: ['HD Digital Photo Printing', 'Zero-Crack Print Guarantee', 'Washable Soft Covers', 'Gift & Personalized Packing']
-  },
-  {
-    id: 13,
-    name: 'Corporate Branding Cushions',
-    category: 'cushions',
-    categoryName: 'Cushions & Covers',
-    badge: 'Corporate Merch',
-    img: prod13,
-    fabric: 'Durable Poly-Canvas',
-    desc: 'Branded cushion covers featuring corporate logos for office reception lounges, hotel lobbies, and promotional giveaways.',
-    specs: ['Precision Brand Logo Print', 'Stain & Dirt Resistant', 'Bulk Corporate Supply', 'Pan-India Express Shipping']
-  },
-  {
-    id: 14,
-    name: 'Decorative Throw Pillow Sets',
-    category: 'cushions',
-    categoryName: 'Cushions & Covers',
-    badge: 'Full Set',
-    img: prod14,
-    fabric: 'Embossed Jacquard Texture',
-    desc: 'Matching decorative throw pillow sets with premium micro-fiber inner fills and elegant textured outer covers.',
-    specs: ['Complete Cover + Pillow Filler Set', 'Microfiber Soft Loft Fill', 'Elegantly Embossed Textures', 'Easy Removable Zipper Covers']
   }
 ];
