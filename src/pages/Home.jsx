@@ -40,18 +40,18 @@ export default function Home() {
           <div className="hero-content">
             <div className="badge-tag" style={{ background: 'rgba(212, 175, 55, 0.12)', border: '1px solid var(--border-gold)', padding: '0.45rem 1.25rem', borderRadius: '30px', color: 'var(--gold-bright)', fontSize: '0.85rem', display: 'inline-flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.75rem' }}>
               <span style={{ width: '8px', height: '8px', background: 'var(--gold-bright)', borderRadius: '50%', boxShadow: '0 0 8px var(--gold-bright)' }}></span>
-              Established 7th March 2025 • Quality Guaranteed
+              Established March 7, 2025 • Sec 37-C Gurugram
             </div>
 
             <h1 className="hero-title">
               <span className="gold-gradient-text">ECO WEAVES STUDIO</span>
-              <span style={{ display: 'block', fontSize: '1.75rem', fontFamily: 'var(--font-sans)', fontWeight: 400, color: 'var(--text-light)', marginTop: '0.6rem', letterSpacing: '0.5px' }}>
-                Where Quality Meets Comfort & Eco-Innovation
+              <span style={{ display: 'block', fontSize: '1.85rem', fontFamily: 'var(--font-serif)', fontWeight: 600, color: 'var(--gold-light)', marginTop: '0.6rem', letterSpacing: '0.5px' }}>
+                Your Fashion. Your Vision. Our Craft.
               </span>
             </h1>
 
             <p className="hero-description">
-              Delivering superior quality, stylish, durable, and comfortable clothing at an unbeatable affordable price. Crafted with over 50 varieties of eco-friendly, non-toxic fabrics for sports, custom apparel, team uniforms, outer & innerwear.
+              At Eco Weaves Studio, we create high-quality customised apparel and promotional products tailored to your needs. You bring your ideas and personal style, and we bring them to life with creative suggestions and craftsmanship.
             </p>
 
             <div className="hero-buttons">
@@ -59,7 +59,7 @@ export default function Home() {
                 <i className="fa-solid fa-bag-shopping"></i> Explore Products
               </Link>
               <Link to="/services" className="btn btn-glass btn-lg">
-                <i className="fa-solid fa-gears"></i> Our Services
+                <i className="fa-solid fa-gears"></i> What We Make
               </Link>
             </div>
 
@@ -70,7 +70,7 @@ export default function Home() {
               </div>
               <div className="highlight-item">
                 <i className="fa-solid fa-layer-group gold-icon"></i>
-                <span>50+ Fabric Varieties</span>
+                <span>50+ Eco Fabric Varieties</span>
               </div>
               <div className="highlight-item">
                 <i className="fa-solid fa-droplet gold-icon"></i>
@@ -82,21 +82,21 @@ export default function Home() {
           {/* Hero Featured Card */}
           <div className="hero-card-wrap">
             <div className="glass-card hero-glass-card">
-              <div className="card-badge">DIRECT FACTORY QUALITY</div>
+              <div className="card-badge">CUSTOM FASHION & MERCHANDISE</div>
               <div className="card-image-wrap">
-                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop" alt="Featured T-shirt" />
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop" alt="Custom T-shirt" />
               </div>
               <div className="card-body">
-                <h3 style={{ fontSize: '1.4rem', color: 'var(--gold-light)', marginBottom: '0.6rem' }}>
-                  Custom Apparel & Uniforms
+                <h3 style={{ fontSize: '1.4rem', color: 'var(--gold-light)', marginBottom: '0.6rem', fontFamily: 'var(--font-serif)' }}>
+                  Think It. Customise It. Wear It.
                 </h3>
                 <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', marginBottom: '1.25rem', lineHeight: 1.6 }}>
-                  Sports T-shirts, Team Uniforms, Marathon Sandos, Cushion Covers, Winterwear & More.
+                  Custom T-Shirts, Track Pants, Sportswear, Gym Sandos, Event Tees, Riding Apparel & Advertising Flags.
                 </p>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(212, 175, 55, 0.15)', paddingTop: '1rem' }}>
                   <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--gold-bright)' }}>Factory Direct Supply</span>
-                  <Link to="/services" style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-light)' }}>
-                    Learn More <i className="fa-solid fa-arrow-right" style={{ marginLeft: '0.3rem' }}></i>
+                  <Link to="/contact" style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-light)' }}>
+                    Get Inquiry <i className="fa-solid fa-arrow-right" style={{ marginLeft: '0.3rem' }}></i>
                   </Link>
                 </div>
               </div>
@@ -121,17 +121,17 @@ export default function Home() {
         <div className="container stats-grid">
           <div className="stat-box">
             <div className="stat-number">50+</div>
-            <div className="stat-label">Fabric Varieties</div>
+            <div className="stat-label">Eco Fabric Varieties</div>
           </div>
           <div className="stat-divider"></div>
           <div className="stat-box">
             <div className="stat-number">100%</div>
-            <div className="stat-label">Eco-Friendly Dyes</div>
+            <div className="stat-label">Customized To Order</div>
           </div>
           <div className="stat-divider"></div>
           <div className="stat-box">
-            <div className="stat-number">15+</div>
-            <div className="stat-label">Product Lines</div>
+            <div className="stat-number">16+</div>
+            <div className="stat-label">Product Categories</div>
           </div>
           <div className="stat-divider"></div>
           <div className="stat-box">
@@ -145,9 +145,9 @@ export default function Home() {
       <section className="section-padding">
         <div className="container">
           <div className="section-header text-center">
-            <span className="section-subtitle"><i className="fa-solid fa-crown"></i> TOP SELECTION</span>
-            <h2 className="section-title">Featured <span className="gold-gradient-text">Product Lineups</span></h2>
-            <p className="section-desc">Hand-crafted apparel and textiles manufactured with zero-defect stitching and non-toxic dyes.</p>
+            <span className="section-subtitle"><i className="fa-solid fa-crown"></i> WHAT WE MAKE</span>
+            <h2 className="section-title">Featured <span className="gold-gradient-text">Custom Products</span></h2>
+            <p className="section-desc">Share your design, logo, colors, or ideas — we turn them into custom products made for you.</p>
             <div className="title-underline"></div>
           </div>
 
@@ -184,16 +184,18 @@ export default function Home() {
       {/* Quick Banner CTA */}
       <section style={{ background: 'linear-gradient(180deg, rgba(5, 24, 18, 0.95) 0%, rgba(3, 13, 10, 0.98) 100%)', padding: '5rem 0', borderTop: '1px solid var(--border-gold)', borderBottom: '1px solid var(--border-gold)' }}>
         <div className="container text-center">
-          <h2 style={{ fontSize: '2.6rem', marginBottom: '1.25rem' }}>Looking for Custom Bulk Uniforms or Fabric Supply?</h2>
+          <h2 style={{ fontSize: '2.6rem', marginBottom: '1.25rem', fontFamily: 'var(--font-serif)' }}>
+            Have a Design or Idea in Mind?
+          </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem', maxWidth: '750px', margin: '0 auto 2.5rem auto', lineHeight: 1.7 }}>
-            Our in-house manufacturing unit converts your requirements into high-definition sublimated apparel and custom eco textiles.
+            Share your design, logo, colors, or ideas with us — we’ll turn them into stylish, customised products made for you.
           </p>
           <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/services" className="btn btn-gold btn-lg">
-              <i className="fa-solid fa-gears"></i> Explore Our Services
+            <Link to="/contact" className="btn btn-gold btn-lg">
+              <i className="fa-solid fa-paper-plane"></i> Send Custom Inquiry
             </Link>
-            <Link to="/contact" className="btn btn-glass btn-lg">
-              <i className="fa-solid fa-envelope"></i> Send Direct Inquiry
+            <Link to="/services" className="btn btn-glass btn-lg">
+              <i className="fa-solid fa-gears"></i> Explore Our Services
             </Link>
           </div>
         </div>

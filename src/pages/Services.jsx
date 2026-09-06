@@ -5,51 +5,51 @@ export default function Services() {
   const servicesList = [
     {
       id: 1,
-      title: 'Custom Apparel Manufacturing',
+      title: 'Custom T-Shirts & Group Apparel',
       icon: 'fa-shirt',
-      badge: 'CORE SPECIALTY',
-      desc: 'Complete manufacturing of Sports T-shirts, Marathon Sandos, Gym Wear, Lowers, School Uniforms, and Corporate Apparel with zero-defect stitching.',
-      features: ['Sublimated Sports Wear', 'School & Player Kits', 'Gym & Jogger Lowers', 'Innerwear & Activewear']
+      badge: 'CUSTOM FASHION',
+      desc: 'Customized Everyday T-Shirts, Group T-Shirts, Event Apparel, Self-Photo T-Shirts, Bike Riding & Car Riding Club Tees.',
+      features: ['100% Bio-Washed Cotton', 'HD Sublimation & Screen Prints', 'Group & Fest Customization', '50+ Fabric Color Selection']
     },
     {
       id: 2,
-      title: '50+ Varieties Raw Fabric Supply',
-      icon: 'fa-layer-group',
-      badge: 'ECO FABRICS',
-      desc: 'Supply of over 50 varieties of eco-friendly, non-toxic, skin-safe knitted & woven fabrics tailored for sports, fashion, and industrial use.',
-      features: ['Polyester Dryfit & Mesh', '100% Organic Cotton', 'Cotton Pique & Honeycomb', 'Fleece & Spandex Blends']
+      title: 'Sportswear & Activewear',
+      icon: 'fa-person-running',
+      badge: 'PERFORMANCE',
+      desc: 'High-performance Gym Sandos, Sports T-Shirts, Shorts, Track Pants, Marathon T-Shirts, and 360° Sublimated Cricket Jerseys.',
+      features: ['Micro-Pique Dry-Fit Mesh', '4-Way Stretch Spandex', 'Squad Player Names & Numbers', 'Odor-Free & Fast Drying']
     },
     {
       id: 3,
-      title: 'HD Sublimation & Screen Printing',
-      icon: 'fa-palette',
-      badge: 'CUSTOMIZATION',
-      desc: 'High-definition full-body sublimation printing, rubber printing, screen printing, and embroidered logos for sports teams and brand merchandise.',
-      features: ['Full Sublimation Prints', 'Player Name & Number Customization', 'High-Density Rubber Prints', 'Precision Embroidery']
+      title: 'Staff & Uniform T-Shirts',
+      icon: 'fa-user-tie',
+      badge: 'CORPORATE',
+      desc: 'Professional corporate uniforms, hotel staff polos, school sports kits, and executive team wear with precision logo embroidery.',
+      features: ['Stain-Resistant Cotton Pique', 'Precision Logo Embroidery', 'Consistent Brand Colorway', 'High-Durability Wash Guarantee']
     },
     {
       id: 4,
-      title: 'Winterwear & Jacket Production',
-      icon: 'fa-snowflake',
-      badge: 'SEASONAL',
-      desc: 'Custom men’s and women’s winter jackets, padded coats, windcheaters, and hoodies manufactured with premium insulation.',
-      features: ['Windproof Outer Shells', 'Thermal Quilted Linings', 'Custom Zipper Pullers', 'Water-Resistant Coating']
+      title: 'Advertising Apparel, Flags & Bags',
+      icon: 'fa-bullhorn',
+      badge: 'PROMOTIONAL',
+      desc: 'High-volume Advertising T-Shirts, Advertising Flags, Teardrop Banners, Advertising Bags, and Gym Duffel Bags for marketing campaigns.',
+      features: ['Weatherproof Outdoor Flags', 'Heavy-Duty Canvas Gym Bags', 'High-Visibility Promo Printing', 'Bulk Quantity Lead Discounts']
     },
     {
       id: 5,
-      title: 'Home Textiles & Soft Furnishings',
-      icon: 'fa-house-chimney',
-      badge: 'TEXTILES',
-      desc: 'Tailored home and hospitality textile production including kitchen aprons, hotel curtains, cushion covers, and table linen.',
-      features: ['Hotel Grade Curtains', 'Custom Printed Aprons', 'Decorative Cushion Covers', 'Heavy-Duty Table Linen']
+      title: 'Corporate & Event Merchandise',
+      icon: 'fa-gift',
+      badge: 'MERCHANDISE',
+      desc: 'Custom corporate merchandise kits, aprons, tote bags, and personalized accessories tailored for corporate gifting and brand promotion.',
+      features: ['Custom Logo Gifting Kits', 'Eco-Friendly Fabric Base', 'Stain-Resistant Chef Aprons', 'Pan-India Bulk Shipping']
     },
     {
       id: 6,
-      title: 'Wholesale Bulk Supply & Logistics',
-      icon: 'fa-truck-fast',
-      badge: 'PAN-INDIA',
-      desc: 'Dedicated wholesale manufacturing and expedited Pan-India distribution for corporate clients, sports clubs, and retail chains.',
-      features: ['Competitive Wholesale Pricing', 'Rigorous Quality Audits', 'Fast Turnaround Times', 'Doorstep Pan-India Shipping']
+      title: '50+ Varieties Eco Raw Fabric Supply',
+      icon: 'fa-layer-group',
+      badge: 'FABRIC SUPPLY',
+      desc: 'Direct factory supply of over 50 varieties of eco-friendly, non-toxic knitted & woven raw fabrics for textile manufacturers and designers.',
+      features: ['Polyester Dry-Fit & Mesh', '100% Organic Combed Cotton', '4-Way Stretch Spandex', 'Thermal Fleece & Microfiber']
     }
   ];
 
@@ -58,9 +58,9 @@ export default function Services() {
       {/* Page Hero */}
       <section className="page-hero">
         <div className="container">
-          <span className="section-subtitle"><i className="fa-solid fa-gears"></i> WHAT WE DO</span>
-          <h1 className="section-title">Our Manufacturing <span className="gold-gradient-text">Services</span></h1>
-          <p className="section-desc">Established March 7, 2025. Providing end-to-end custom apparel manufacturing, 50+ fabric supply, and textile printing solutions.</p>
+          <span className="section-subtitle"><i className="fa-solid fa-gears"></i> WHAT WE MAKE</span>
+          <h1 className="section-title">Manufacturing & <span className="gold-gradient-text">Custom Services</span></h1>
+          <p className="section-desc">Your Style. Your Design. Our Craft. Share your design, logo, colors, or ideas — we turn them into custom products made for you.</p>
           <div className="title-underline"></div>
         </div>
       </section>
@@ -98,7 +98,7 @@ export default function Services() {
                 </div>
 
                 <Link to="/contact" className="btn btn-gold btn-sm btn-block">
-                  <i className="fa-solid fa-paper-plane"></i> Inquire for Service
+                  <i className="fa-solid fa-paper-plane"></i> Inquire for Custom Order
                 </Link>
               </div>
             ))}
@@ -119,26 +119,26 @@ export default function Services() {
           <div className="grid-4" style={{ marginTop: '3.5rem', gap: '1.5rem' }}>
             <div className="glass-card text-center" style={{ padding: '2rem' }}>
               <div style={{ width: '45px', height: '45px', background: 'var(--gold-gradient)', color: '#000', borderRadius: '50%', fontWeight: 700, fontSize: '1.2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem auto' }}>1</div>
-              <h4 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', color: 'var(--gold-light)' }}>Requirement & Design</h4>
-              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Share your requirement, fabric preference, and logos.</p>
+              <h4 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', color: 'var(--gold-light)' }}>Share Your Idea</h4>
+              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Share your design, logo, colors, or specific requirement with us.</p>
             </div>
 
             <div className="glass-card text-center" style={{ padding: '2rem' }}>
               <div style={{ width: '45px', height: '45px', background: 'var(--gold-gradient)', color: '#000', borderRadius: '50%', fontWeight: 700, fontSize: '1.2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem auto' }}>2</div>
               <h4 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', color: 'var(--gold-light)' }}>Fabric & Mockup</h4>
-              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Select from 50+ fabric varieties and approve digital mockup.</p>
+              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Select from 50+ fabric varieties and approve your digital mockup.</p>
             </div>
 
             <div className="glass-card text-center" style={{ padding: '2rem' }}>
               <div style={{ width: '45px', height: '45px', background: 'var(--gold-gradient)', color: '#000', borderRadius: '50%', fontWeight: 700, fontSize: '1.2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem auto' }}>3</div>
-              <h4 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', color: 'var(--gold-light)' }}>Factory Production</h4>
-              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Precision cutting, stitching, and HD sublimation printing.</p>
+              <h4 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', color: 'var(--gold-light)' }}>Precision Crafting</h4>
+              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Custom cutting, stitching, embroidery, and HD printing.</p>
             </div>
 
             <div className="glass-card text-center" style={{ padding: '2rem' }}>
               <div style={{ width: '45px', height: '45px', background: 'var(--gold-gradient)', color: '#000', borderRadius: '50%', fontWeight: 700, fontSize: '1.2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem auto' }}>4</div>
-              <h4 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', color: 'var(--gold-light)' }}>Quality Check & Dispatch</h4>
-              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Zero-defect audit and express Pan-India shipping.</p>
+              <h4 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', color: 'var(--gold-light)' }}>Quality Audit & Delivery</h4>
+              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Zero-defect audit and Pan-India express delivery.</p>
             </div>
           </div>
 

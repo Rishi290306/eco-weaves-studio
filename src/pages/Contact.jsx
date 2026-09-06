@@ -29,7 +29,7 @@ export default function Contact() {
 
     const jsonPayload = JSON.stringify(dataObj);
 
-    // Single Target URL to prevent duplicate database rows
+    // Target URL to send directly to local Java REST API
     const targetUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
       ? 'http://localhost:8080/api/contact'
       : `http://${LOCAL_IP}:8080/api/contact`;
@@ -52,7 +52,7 @@ export default function Contact() {
         <div className="container">
           <span className="section-subtitle"><i className="fa-solid fa-headset"></i> GET IN TOUCH</span>
           <h1 className="section-title">Contact <span className="gold-gradient-text">Eco Weaves Studio</span></h1>
-          <p className="section-desc">Established March 7, 2025. Contact us for wholesale inquiries, custom teamwear, or fabric samples.</p>
+          <p className="section-desc">Head Office: Sec 37-C Gurugram. Contact us for custom fashion, sportswear, uniform kits, or advertising merchandise.</p>
           <div className="title-underline"></div>
         </div>
       </section>
@@ -62,40 +62,52 @@ export default function Contact() {
           <div className="grid-2" style={{ marginBottom: '3rem' }}>
             {/* Info Box */}
             <div className="glass-card" style={{ padding: '2.5rem' }}>
-              <h3 style={{ fontSize: '1.8rem', color: 'var(--gold-light)', marginBottom: '0.5rem' }}>Eco Weaves Studio LLP</h3>
+              <h3 style={{ fontSize: '1.8rem', color: 'var(--gold-light)', marginBottom: '0.5rem', fontFamily: 'var(--font-serif)' }}>Eco Weaves Studio LLP</h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '2rem' }}>
-                Established on 7th March 2025. Contact us for wholesale inquiries, custom teamwear, or fabric samples.
+                Your Fashion. Your Vision. Our Craft. Contact our Head Office team for direct factory inquiries, custom orders, or fabric samples.
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                  <div style={{ width: '45px', height: '45px', background: 'rgba(212, 175, 55, 0.15)', border: '1px solid var(--border-gold)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold-bright)', flexShrink: 0 }}>
+                    <i className="fa-solid fa-building"></i>
+                  </div>
+                  <div>
+                    <strong style={{ display: 'block', color: 'var(--text-light)' }}>Head Office Address</strong>
+                    <span style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.5, display: 'block' }}>
+                      C205 Tower 6, RMG Residency, Sec 37-C, Gurugram, Pincode - 122006, Haryana.
+                    </span>
+                  </div>
+                </div>
+
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <div style={{ width: '45px', height: '45px', background: 'rgba(212, 175, 55, 0.15)', border: '1px solid var(--border-gold)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold-bright)' }}>
+                  <div style={{ width: '45px', height: '45px', background: 'rgba(212, 175, 55, 0.15)', border: '1px solid var(--border-gold)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold-bright)', flexShrink: 0 }}>
+                    <i className="fa-solid fa-phone"></i>
+                  </div>
+                  <div>
+                    <strong style={{ display: 'block', color: 'var(--text-light)' }}>Direct Phone / Contact</strong>
+                    <a href="tel:+918851589090" style={{ color: 'var(--gold-bright)', fontWeight: 600 }}>+91 8851589090</a>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                  <div style={{ width: '45px', height: '45px', background: 'rgba(212, 175, 55, 0.15)', border: '1px solid var(--border-gold)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold-bright)', flexShrink: 0 }}>
                     <i className="fa-solid fa-envelope"></i>
                   </div>
                   <div>
                     <strong style={{ display: 'block', color: 'var(--text-light)' }}>Official Email</strong>
-                    <a href="mailto:ECOM.RAVI@YAHOO.COM" style={{ color: 'var(--gold-bright)' }}>ECOM.RAVI@YAHOO.COM</a>
+                    <a href="mailto:ecom.ravi@yahoo.com" style={{ color: 'var(--gold-bright)' }}>ecom.ravi@yahoo.com</a>
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <div style={{ width: '45px', height: '45px', background: 'rgba(212, 175, 55, 0.15)', border: '1px solid var(--border-gold)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold-bright)' }}>
-                    <i className="fa-solid fa-clock"></i>
-                  </div>
-                  <div>
-                    <strong style={{ display: 'block', color: 'var(--text-light)' }}>Operating Hours</strong>
-                    <span style={{ color: 'var(--text-muted)' }}>Mon - Sat: 9:00 AM - 7:00 PM</span>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <div style={{ width: '45px', height: '45px', background: 'rgba(37, 211, 102, 0.15)', border: '1px solid rgba(37, 211, 102, 0.4)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#25D366' }}>
+                  <div style={{ width: '45px', height: '45px', background: 'rgba(37, 211, 102, 0.15)', border: '1px solid rgba(37, 211, 102, 0.4)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#25D366', flexShrink: 0 }}>
                     <i className="fa-brands fa-whatsapp"></i>
                   </div>
                   <div>
-                    <strong style={{ display: 'block', color: 'var(--text-light)' }}>WhatsApp Direct</strong>
-                    <a href="https://wa.me/?text=Hi%20Eco%20Weaves%20Studio,%20I%20want%20a%20quote." target="_blank" rel="noopener noreferrer" style={{ color: '#25D366' }}>
-                      Click to chat instantly
+                    <strong style={{ display: 'block', color: 'var(--text-light)' }}>WhatsApp Instant Chat</strong>
+                    <a href="https://wa.me/918851589090?text=Hi%20Eco%20Weaves%20Studio,%20I%20want%20a%20quote%20for%20customized%20apparel." target="_blank" rel="noopener noreferrer" style={{ color: '#25D366' }}>
+                      Click to chat on WhatsApp (+91 8851589090)
                     </a>
                   </div>
                 </div>
@@ -104,12 +116,12 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div className="glass-card" style={{ padding: '2.5rem' }}>
-              <h3 style={{ fontSize: '1.8rem', color: 'var(--gold-light)', marginBottom: '1.5rem' }}>Send Inquiry Form</h3>
+              <h3 style={{ fontSize: '1.8rem', color: 'var(--gold-light)', marginBottom: '1.5rem', fontFamily: 'var(--font-serif)' }}>Send Custom Inquiry</h3>
               
               {submitted ? (
                 <div className="text-center" style={{ padding: '2rem 0' }}>
                   <i className="fa-solid fa-circle-check gold-icon" style={{ fontSize: '3.5rem', marginBottom: '1rem', color: '#4CAF50' }}></i>
-                  <h2 style={{ fontSize: '2rem', color: 'var(--gold-light)', marginBottom: '0.5rem' }}>Inquiry Submitted Successfully!</h2>
+                  <h2 style={{ fontSize: '2rem', color: 'var(--gold-light)', marginBottom: '0.5rem', fontFamily: 'var(--font-serif)' }}>Inquiry Submitted Successfully!</h2>
                   <p style={{ color: 'var(--green-accent)', fontWeight: 600, fontSize: '1.05rem', marginBottom: '1.5rem' }}>
                     ✅ Stored directly into Eco Weaves MySQL Database!
                   </p>
@@ -138,11 +150,11 @@ export default function Contact() {
                   <div className="grid-2" style={{ gap: '1rem' }}>
                     <div className="form-group">
                       <label>Email Address *</label>
-                      <input type="email" className="form-input" placeholder="e.g. ECOM.RAVI@YAHOO.COM" value={email} onChange={e => setEmail(e.target.value)} required />
+                      <input type="email" className="form-input" placeholder="e.g. ecom.ravi@yahoo.com" value={email} onChange={e => setEmail(e.target.value)} required />
                     </div>
                     <div className="form-group">
                       <label>Phone / WhatsApp *</label>
-                      <input type="tel" className="form-input" placeholder="+91 9876543210" value={phone} onChange={e => setPhone(e.target.value)} required />
+                      <input type="tel" className="form-input" placeholder="+91 8851589090" value={phone} onChange={e => setPhone(e.target.value)} required />
                     </div>
                   </div>
 
@@ -150,21 +162,25 @@ export default function Contact() {
                     <label>Product Category Requirement *</label>
                     <select className="form-input" value={category} onChange={e => setCategory(e.target.value)} required>
                       <option value="" disabled>Choose category...</option>
-                      <option value="Sports T-shirts">Sports T-shirts & Sandos</option>
-                      <option value="Custom T-shirts">Custom / Photo Printed T-shirts</option>
-                      <option value="Lowers & Gym Wear">Lowers, Joggers & Gym Wear</option>
-                      <option value="School & Player Uniforms">School & Player Uniforms</option>
-                      <option value="Marathon & Cricket Uniforms">Marathon & Cricket Team Kits</option>
-                      <option value="Aprons & Curtains">Aprons, Curtains & Cushion Covers</option>
-                      <option value="Winter Jackets">Winter Jackets (Men & Women)</option>
-                      <option value="Innerwear & Bras">Innerwear & Bras</option>
-                      <option value="50+ Fabrics Supply">Raw Fabric Supply (50+ Varieties)</option>
+                      <option value="Custom T-Shirts">Custom T-Shirts (Everyday & Group)</option>
+                      <option value="Shorts & Track Pants">Shorts and Track Pants</option>
+                      <option value="Sportswear & Gym Wear">Sportswear and Gym Wear</option>
+                      <option value="Gym Sandos & Sports T-Shirts">Gym Sandos and Sports T-Shirts</option>
+                      <option value="Gym Bags">Gym Bags & Duffel Bags</option>
+                      <option value="Event T-Shirts">Group & Event T-Shirts</option>
+                      <option value="Cricket Jerseys & Sportswear">Cricket Jerseys & Sportswear</option>
+                      <option value="Bike & Car Riding T-Shirts">Bike & Car Riding T-Shirts</option>
+                      <option value="Staff & Uniform T-Shirts">Staff and Uniform T-Shirts</option>
+                      <option value="Advertising T-Shirts & Flags">Advertising T-Shirts, Flags & Bags</option>
+                      <option value="Marathon T-Shirts">Marathon T-Shirts</option>
+                      <option value="Corporate & Promotional Merchandise">Corporate & Promotional Merchandise</option>
+                      <option value="50+ Raw Fabrics Supply">Raw Fabric Supply (50+ Varieties)</option>
                     </select>
                   </div>
 
                   <div className="form-group">
-                    <label>Detailed Requirement / Quantity *</label>
-                    <textarea className="form-input" rows="4" placeholder="Tell us about your required quantity, fabric type, design..." value={message} onChange={e => setMessage(e.target.value)} required></textarea>
+                    <label>Detailed Requirement / Quantity / Design Ideas *</label>
+                    <textarea className="form-input" rows="4" placeholder="Share your design, logo, colors, or quantity ideas..." value={message} onChange={e => setMessage(e.target.value)} required></textarea>
                   </div>
 
                   <button type="submit" className="btn btn-gold btn-lg btn-block">
@@ -179,13 +195,13 @@ export default function Contact() {
           <div className="glass-card" style={{ padding: '1.5rem' }}>
             <div style={{ marginBottom: '1rem' }}>
               <h3 style={{ fontSize: '1.3rem', color: 'var(--text-light)' }}>
-                <i className="fa-solid fa-location-dot gold-icon"></i> Studio Manufacturing Location
+                <i className="fa-solid fa-location-dot gold-icon"></i> Head Office Location (Sec 37-C, Gurugram)
               </h3>
-              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>Visit our manufacturing & fabric design unit.</p>
+              <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>C205 Tower 6, RMG Residency, Sec 37-C, Gurugram, Haryana - 122006.</p>
             </div>
             <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--border-gold)' }}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.803875505055!2d72.8277!3d18.9902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDU5JzI0LjciTiA3MsKwNDknMzkuNyJF!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14032.518607148564!2d76.9856!3d28.4452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d17d5e4b7b251%3A0x6b772b220d53c61c!2sSector%2037C%2C%20Gurugram%2C%20Haryana%20122006!5e0!3m2!1sen!2sin!4v1725625000000!5m2!1sen!2sin"
                 width="100%"
                 height="350"
                 style={{ border: 0 }}
